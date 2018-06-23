@@ -12,10 +12,13 @@ import UIKit
 // This shows all of the routines for a workout
 class WorkoutViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
     var workout: Workout!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
 
         self.navigationItem.title = workout.name
         // Do any additional setup after loading the view.
@@ -24,6 +27,15 @@ class WorkoutViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        refreshViews()
+    }
+    
+    func refreshViews() {
+        Persistence.refreshAll()
+        tableView.reloadData()
     }
     
     @IBAction func addButtonPressed(_ sender: Any) {
@@ -36,7 +48,7 @@ class WorkoutViewController: UIViewController {
             dest.workout = workout
             
             if let index = sender as? Int {
-                let routines = workout.routinesDict.map({key, value in return value})
+                let routines: [Routine] = workout.routines?.array as? [Routine] ?? []
                 let routine = routines[index]
                 dest.routine = routine
             }
@@ -48,15 +60,17 @@ class WorkoutViewController: UIViewController {
 
 extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return workout.routinesDict.count
+        let routines: [Routine] = workout.routines?.array as? [Routine] ?? []
+        return routines.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RoutineCell", for: indexPath) as! RoutineTableViewCell
-        let routines = workout.routinesDict.map({key, value in return value})
+        
+        let routines: [Routine] = workout.routines?.array as? [Routine] ?? []
         let routine = routines[indexPath.row]
         cell.nameLabel.text = routine.name
-        cell.setRepsLabel.text = routine.setReps
+        cell.setRepsLabel.text = routine.setreps
         cell.weightLabel.text = routine.weight
         
         return cell

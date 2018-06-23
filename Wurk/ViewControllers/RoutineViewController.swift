@@ -14,6 +14,7 @@ class RoutineViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var setRepsTextField: UITextField!
     @IBOutlet weak var weightTextField: UITextField!
+    @IBOutlet weak var notesTextView: UITextView!
     
     var workout: Workout!
     var routine: Routine!
@@ -21,12 +22,14 @@ class RoutineViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = routine.name
+        navigationItem.title = "New Routine"
         
         if let routine = routine {
+            navigationItem.title = routine.name
             nameTextField.text = routine.name
-            setRepsTextField.text = routine.setReps
+            setRepsTextField.text = routine.setreps
             weightTextField.text = routine.weight
+            notesTextView.text = routine.notes
             
             nameTextField.isEnabled = false // don't want to change name
         }
@@ -43,8 +46,18 @@ class RoutineViewController: UIViewController {
             && !setRepsTextField.text!.isEmpty
             && !weightTextField.text!.isEmpty {
             
-            workout.routinesDict[routine.name] = routine
-            Persistence.save(workout: workout)
+            if routine == nil {
+                let managedContext = Persistence.persistentContainer.viewContext
+                routine = Routine(context: managedContext)
+                routine.name = nameTextField.text
+                routine.workout = workout
+            }
+            
+            routine.setreps = setRepsTextField.text
+            routine.weight = weightTextField.text
+            routine.notes = notesTextView.text
+            
+            Persistence.saveContext()
             
             self.navigationController?.popViewController(animated: true)
         }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Workout {
-    var name: String
-    var routinesDict: [String: Routine]
+extension Workout {
+//    var name: String
+//    var routinesDict: [String: Routine]
 }

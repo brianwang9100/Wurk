@@ -19,6 +19,12 @@
 		DFC88F9A20D48B2C008C72B7 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC88F9920D48B2C008C72B7 /* WorkoutViewController.swift */; };
 		DFC88F9E20D48C94008C72B7 /* WorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC88F9D20D48C94008C72B7 /* WorkoutTableViewCell.swift */; };
 		DFC88FA020D48CA2008C72B7 /* RoutineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC88F9F20D48CA2008C72B7 /* RoutineTableViewCell.swift */; };
+		DFC88FA520DA10FF008C72B7 /* Wurk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DFC88FA320DA10FF008C72B7 /* Wurk.xcdatamodeld */; };
+		DFC88FCB20DB308E008C72B7 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC88FCA20DB308E008C72B7 /* Core.swift */; };
+		DFC88FCE20DB30AB008C72B7 /* UIView+DesignableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC88FCD20DB30AB008C72B7 /* UIView+DesignableExtensions.swift */; };
+		DFC88FD020DB31A6008C72B7 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC88FCF20DB31A6008C72B7 /* GradientView.swift */; };
+		DFC88FD220DDE4E0008C72B7 /* GradientCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC88FD120DDE4E0008C72B7 /* GradientCore.swift */; };
+		DFC88FD420DDE605008C72B7 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC88FD320DDE605008C72B7 /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +42,12 @@
 		DFC88F9920D48B2C008C72B7 /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		DFC88F9D20D48C94008C72B7 /* WorkoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewCell.swift; sourceTree = "<group>"; };
 		DFC88F9F20D48CA2008C72B7 /* RoutineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineTableViewCell.swift; sourceTree = "<group>"; };
+		DFC88FA420DA10FF008C72B7 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		DFC88FCA20DB308E008C72B7 /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
+		DFC88FCD20DB30AB008C72B7 /* UIView+DesignableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+DesignableExtensions.swift"; sourceTree = "<group>"; };
+		DFC88FCF20DB31A6008C72B7 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		DFC88FD120DDE4E0008C72B7 /* GradientCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientCore.swift; sourceTree = "<group>"; };
+		DFC88FD320DDE605008C72B7 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,10 +81,12 @@
 			isa = PBXGroup;
 			children = (
 				DFC88F7F20D48795008C72B7 /* AppDelegate.swift */,
+				DFC88FCC20DB3093008C72B7 /* Misc */,
 				DFC88FA120D48CA5008C72B7 /* Views */,
 				DFC88F9B20D48C50008C72B7 /* ViewControllers */,
 				DFC88F9C20D48C62008C72B7 /* Model */,
 				DFC88F8320D48795008C72B7 /* Main.storyboard */,
+				DFC88FA320DA10FF008C72B7 /* Wurk.xcdatamodeld */,
 				DFC88F8620D48797008C72B7 /* Assets.xcassets */,
 				DFC88F8820D48797008C72B7 /* LaunchScreen.storyboard */,
 				DFC88F8B20D48797008C72B7 /* Info.plist */,
@@ -104,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				DFC88FA220D48CB1008C72B7 /* Cells */,
+				DFC88FC920DB2FFC008C72B7 /* Designables */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -115,6 +130,25 @@
 				DFC88F9F20D48CA2008C72B7 /* RoutineTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		DFC88FC920DB2FFC008C72B7 /* Designables */ = {
+			isa = PBXGroup;
+			children = (
+				DFC88FCD20DB30AB008C72B7 /* UIView+DesignableExtensions.swift */,
+				DFC88FCF20DB31A6008C72B7 /* GradientView.swift */,
+			);
+			path = Designables;
+			sourceTree = "<group>";
+		};
+		DFC88FCC20DB3093008C72B7 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				DFC88FCA20DB308E008C72B7 /* Core.swift */,
+				DFC88FD120DDE4E0008C72B7 /* GradientCore.swift */,
+				DFC88FD320DDE605008C72B7 /* Color.swift */,
+			);
+			path = Misc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,11 +224,17 @@
 			files = (
 				DFC88F9220D4898A008C72B7 /* Persistence.swift in Sources */,
 				DFC88F9820D48B1A008C72B7 /* RoutineViewController.swift in Sources */,
+				DFC88FD220DDE4E0008C72B7 /* GradientCore.swift in Sources */,
 				DFC88F9A20D48B2C008C72B7 /* WorkoutViewController.swift in Sources */,
 				DFC88F9E20D48C94008C72B7 /* WorkoutTableViewCell.swift in Sources */,
+				DFC88FCE20DB30AB008C72B7 /* UIView+DesignableExtensions.swift in Sources */,
 				DFC88F8220D48795008C72B7 /* SelectViewController.swift in Sources */,
+				DFC88FCB20DB308E008C72B7 /* Core.swift in Sources */,
+				DFC88FD420DDE605008C72B7 /* Color.swift in Sources */,
 				DFC88F9420D48A7B008C72B7 /* Routine.swift in Sources */,
 				DFC88F9620D48AEC008C72B7 /* Workout.swift in Sources */,
+				DFC88FA520DA10FF008C72B7 /* Wurk.xcdatamodeld in Sources */,
+				DFC88FD020DB31A6008C72B7 /* GradientView.swift in Sources */,
 				DFC88FA020D48CA2008C72B7 /* RoutineTableViewCell.swift in Sources */,
 				DFC88F8020D48795008C72B7 /* AppDelegate.swift in Sources */,
 			);
@@ -394,6 +434,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DFC88FA320DA10FF008C72B7 /* Wurk.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DFC88FA420DA10FF008C72B7 /* Model.xcdatamodel */,
+			);
+			currentVersion = DFC88FA420DA10FF008C72B7 /* Model.xcdatamodel */;
+			name = Wurk.xcdatamodeld;
+			path = Wurk/Wurk.xcdatamodeld;
+			sourceTree = SOURCE_ROOT;
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DFC88F7420D48795008C72B7 /* Project object */;
 }

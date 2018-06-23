@@ -20,6 +20,7 @@ class SelectViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         tableView.delegate = self
+        tableView.dataSource = self
         loadWorkouts()
     }
 
@@ -28,8 +29,17 @@ class SelectViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        refreshViews()
+    }
+    
+    func refreshViews() {
+        Persistence.refreshAll()
+        loadWorkouts()
+    }
+    
     func loadWorkouts() {
-        workouts = Persistence.loadWorkouts()
+        workouts = Persistence.getWorkouts()
         tableView.reloadData()
     }
 
@@ -38,11 +48,18 @@ class SelectViewController: UIViewController {
         let saveAction = UIAlertAction(title: "Save", style: .default, handler: { alert in
             let workoutNameTextField = alertController.textFields![0]
             if let name = workoutNameTextField.text {
-                let newWorkout = Workout(name: name, routinesDict: [:])
-                Persistence.save(workout: newWorkout)
-                self.loadWorkouts()
+                
+                //coredata block for saving
+                let managedContext = Persistence.persistentContainer.viewContext
+                let newWorkout = Workout(context: managedContext)
+                newWorkout.name = name
+                Persistence.saveContext()
+                
+                //reload tableView.
+                self.refreshViews()
             }
         })
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addTextField(configurationHandler: { textField in
             textField.placeholder = "Workout Name"

@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct Routine {
-    var name: String
-    var setReps: String
-    var weight: String
+extension Routine {
+//    var name: String
+//    var setReps: String
+//    var weight: String
 }
