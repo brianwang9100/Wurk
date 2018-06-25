@@ -51,6 +51,10 @@ class RoutineViewController: UIViewController {
                 routine = Routine(context: managedContext)
                 routine.name = nameTextField.text
                 routine.workout = workout
+                
+                let gradient = Gradient.random()
+                routine.topColorHexString = gradient.topColorHexString
+                routine.bottomColorHexString = gradient.bottomColorHexString
             }
             
             routine.setreps = setRepsTextField.text

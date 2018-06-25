@@ -70,4 +70,10 @@ struct Persistence {
         return []
     }
     
+    static func delete(object: NSManagedObject) {
+        let managedContext = persistentContainer.viewContext
+        managedContext.delete(object)
+        saveContext()
+    }
+    
 }

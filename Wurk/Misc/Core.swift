@@ -31,3 +31,15 @@ extension UILabel {
         set { self.font = UIFont(name: newValue, size: self.font?.pointSize ?? 20) }
     }
 }
+
+extension Int {
+    
+    func random() -> Int {
+        return Int(arc4random_uniform(UInt32(self)))
+    }
+    
+    static func random(in range: Range<Int>) -> Int {
+        return Int(arc4random_uniform(UInt32(range.upperBound - range.lowerBound))) + range.lowerBound
+    }
+    
+}

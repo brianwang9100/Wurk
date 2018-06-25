@@ -53,6 +53,11 @@ class SelectViewController: UIViewController {
                 let managedContext = Persistence.persistentContainer.viewContext
                 let newWorkout = Workout(context: managedContext)
                 newWorkout.name = name
+                let gradient = Gradient.random()
+                newWorkout.topColorHexString = gradient.topColorHexString
+                newWorkout.bottomColorHexString = gradient.bottomColorHexString
+                
+                // save all changes
                 Persistence.saveContext()
                 
                 //reload tableView.
@@ -89,6 +94,9 @@ extension SelectViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WorkoutCell", for: indexPath) as! WorkoutTableViewCell
         let workout = workouts[indexPath.row]
         cell.nameLabel.text = workout.name
+        cell.gradientView.topColor = UIColor.colorWithHexString(workout.topColorHexString!)
+        cell.gradientView.bottomColor = UIColor.colorWithHexString(workout.bottomColorHexString!)
+
         return cell
     }
     

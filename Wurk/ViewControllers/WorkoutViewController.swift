@@ -72,6 +72,12 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
         cell.nameLabel.text = routine.name
         cell.setRepsLabel.text = routine.setreps
         cell.weightLabel.text = routine.weight
+        cell.gradientView.topColor = UIColor.colorWithHexString(routine.topColorHexString!)
+        cell.gradientView.bottomColor = UIColor.colorWithHexString(routine.bottomColorHexString!)
+
+        
+        
+        
         
         return cell
     }

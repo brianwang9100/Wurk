@@ -1,0 +1,12 @@
+PODS:
+  - SwiftReorder (5.0.0)
+
+DEPENDENCIES:
+  - SwiftReorder (~> 5.0)
+
+SPEC CHECKSUMS:
+  SwiftReorder: 66c81f33321629715c53a8f8214a1e892a9f0fdd
+
+PODFILE CHECKSUM: 4c2b8f5924e1ea3dd5439d25c8f9e3d6a54c1466
+
+COCOAPODS: 1.4.0

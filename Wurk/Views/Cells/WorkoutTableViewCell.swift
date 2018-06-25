@@ -11,6 +11,7 @@ import UIKit
 class WorkoutTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var gradientView: GradientView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -13,6 +13,7 @@ class RoutineTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var setRepsLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
+    @IBOutlet weak var gradientView: GradientView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
